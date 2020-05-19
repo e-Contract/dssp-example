@@ -16,6 +16,7 @@
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <dssp.version>1.8.0-SNAPSHOT</dssp.version>
     </properties>
     <build>
         <plugins>
@@ -51,19 +52,34 @@
         <dependency>
             <groupId>be.e_contract.dssp</groupId>
             <artifactId>dssp-client</artifactId>
-            <version>1.7.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.ws.security</groupId>
-            <artifactId>wss4j</artifactId>
-            <version>1.6.19</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4.7</version>
-            <scope>provided</scope>
+            <version>${dssp.version}</version>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>wss4j2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>be.e_contract.dssp</groupId>
+                    <artifactId>dssp-client-wss4j2</artifactId>
+                    <version>${dssp.version}</version>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>wss4j1</id>
+            <dependencies>
+                <dependency>
+                    <groupId>be.e_contract.dssp</groupId>
+                    <artifactId>dssp-client-wss4j1</artifactId>
+                    <version>${dssp.version}</version>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 </project>

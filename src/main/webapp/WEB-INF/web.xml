@@ -5,22 +5,4 @@
 
     <display-name>DSSP Example Web Application</display-name>
     
-    <servlet>
-        <servlet-name>StartServlet</servlet-name>
-        <servlet-class>be.e_contract.dssp.example.StartServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>StartServlet</servlet-name>
-        <url-pattern>/sign</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>LandingServlet</servlet-name>
-        <servlet-class>be.e_contract.dssp.example.LandingServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LandingServlet</servlet-name>
-        <url-pattern>/landing</url-pattern>
-    </servlet-mapping>
-    
 </web-app>
