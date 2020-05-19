@@ -16,7 +16,7 @@
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dssp.version>1.8.0-SNAPSHOT</dssp.version>
+        <dssp.version>1.8.0</dssp.version>
     </properties>
     <build>
         <plugins>
@@ -94,6 +94,7 @@
                     <groupId>org.apache.wss4j</groupId>
                     <artifactId>wss4j-ws-security-dom</artifactId>
                     <version>2.2.5</version>
+                    <scope>runtime</scope>
                     <exclusions>
                         <exclusion>
                             <groupId>org.apache.geronimo.javamail</groupId>
@@ -106,6 +107,41 @@
                     </exclusions>
                 </dependency>
             </dependencies>
+        </profile>
+        <profile>
+            <id>liberty</id>
+            <dependencies>
+                <dependency>
+                    <groupId>be.e_contract.dssp</groupId>
+                    <artifactId>dssp-client-wss4j2</artifactId>
+                    <version>${dssp.version}</version>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.wss4j</groupId>
+                    <artifactId>wss4j-ws-security-dom</artifactId>
+                    <version>2.2.5</version>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.openliberty.tools</groupId>
+                        <artifactId>liberty-maven-plugin</artifactId>
+                        <version>3.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>run-liberty</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
