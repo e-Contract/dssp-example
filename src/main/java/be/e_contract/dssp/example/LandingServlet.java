@@ -10,6 +10,7 @@ import be.e_contract.dssp.client.exception.DocumentSignatureException;
 import be.e_contract.dssp.client.exception.UnknownDocumentException;
 import be.e_contract.dssp.client.exception.UnsupportedDocumentTypeException;
 import java.io.IOException;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +24,9 @@ import org.slf4j.LoggerFactory;
 public class LandingServlet extends HttpServlet {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LandingServlet.class);
+
+    @Inject
+    private DemoController demoController;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,10 +56,8 @@ public class LandingServlet extends HttpServlet {
             LOGGER.error("error: " + ex.getMessage(), ex);
             return;
         }
-        for (SignatureInfo signatureInfo : verificationResult.getSignatureInfos()) {
-            LOGGER.debug("signatory: {}", signatureInfo.getName());
-        }
+        this.demoController.setVerificationResult(verificationResult);
         httpSession.removeAttribute("DSS-SESSION");
-        response.sendRedirect("./index.html");
+        response.sendRedirect("./result.xhtml");
     }
 }

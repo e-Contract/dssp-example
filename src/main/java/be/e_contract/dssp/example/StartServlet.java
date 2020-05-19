@@ -9,6 +9,7 @@ import be.e_contract.dssp.client.exception.IncorrectSignatureTypeException;
 import be.e_contract.dssp.client.exception.UnsupportedDocumentTypeException;
 import be.e_contract.dssp.client.exception.UnsupportedSignatureTypeException;
 import java.io.IOException;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +25,12 @@ public class StartServlet extends HttpServlet {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(StartServlet.class);
 
+    @Inject
+    private DemoController demoController;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.demoController.setVerificationResult(null);
         DigitalSignatureServiceClient client = new DigitalSignatureServiceClient("https://www.e-contract.be/dss-ws/dss");
         byte[] pdf = IOUtils.toByteArray(StartServlet.class.getResourceAsStream("/document.pdf"));
         DigitalSignatureServiceSession session;
