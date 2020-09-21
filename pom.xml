@@ -144,4 +144,14 @@
             </build>
         </profile>
     </profiles>
+    <repositories>
+        <repository>
+            <id>e-contract</id>
+            <url>https://www.e-contract.be/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </repository>
+    </repositories>
 </project>
