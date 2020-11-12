@@ -16,7 +16,7 @@
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dssp.version>1.8.0</dssp.version>
+        <dssp.version>1.8.1-SNAPSHOT</dssp.version>
     </properties>
     <build>
         <plugins>
@@ -65,6 +65,17 @@
                 <dependency>
                     <groupId>be.e_contract.dssp</groupId>
                     <artifactId>dssp-client-wss4j2</artifactId>
+                    <version>${dssp.version}</version>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>wss4j21</id>
+            <dependencies>
+                <dependency>
+                    <groupId>be.e_contract.dssp</groupId>
+                    <artifactId>dssp-client-wss4j21</artifactId>
                     <version>${dssp.version}</version>
                     <scope>runtime</scope>
                 </dependency>

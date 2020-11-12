@@ -18,6 +18,10 @@ The web application will use the Apache WSS4J version 2 that is embedded within 
 
 The web application should be available at: http://localhost:8080/dssp-example/
 
+For versions of WildFly that still use WSS4J 2.1.x, you can deploy via:
+```
+mvn clean wildfly:deploy -Pwss4j21
+```
 
 ## JBoss EAP 6
 
