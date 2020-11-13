@@ -16,7 +16,7 @@
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dssp.version>1.8.1-SNAPSHOT</dssp.version>
+        <dssp.version>1.8.1</dssp.version>
     </properties>
     <build>
         <plugins>
