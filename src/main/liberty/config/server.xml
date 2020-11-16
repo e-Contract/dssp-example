@@ -5,8 +5,18 @@
         <feature>servlet-4.0</feature>
         <feature>jsf-2.3</feature>
         <feature>cdi-2.0</feature>
+        <feature>transportSecurity-1.0</feature>
     </featureManager>
 
     <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" httpsPort="9443"/>
+
+    <sslDefault sslRef="customSSLConfiguration"/>
+
+    <ssl id="customSSLConfiguration"
+         keyStoreRef="defaultKeyStore"
+         trustStoreRef="defaultTrustStore"
+         trustDefaultCerts="true"/>
+
+    <httpSession cookieSameSite="None" cookieHttpOnly="true" cookieSecure="true"/>
 
 </server>

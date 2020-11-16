@@ -16,7 +16,8 @@ mvn clean wildfly:deploy
 ```
 The web application will use the Apache WSS4J version 2 that is embedded within the JBoss EAP application server.
 
-The web application should be available at: https://localhost:8443/dssp-example/
+The web application should be available at:
+https://localhost:8443/dssp-example/
 
 For versions of WildFly that still use WSS4J 2.1.x, you can deploy via:
 ```
@@ -31,7 +32,8 @@ mvn clean jboss-as:deploy -Pwss4j1
 ```
 The web application will use the Apache WSS4J version 1 that is embedded within the JBoss EAP application server.
 
-The web application should be available at: http://localhost:8080/dssp-example/
+The web application should be available at:
+http://localhost:8080/dssp-example/
 
 
 ## Open Liberty
@@ -42,7 +44,8 @@ mvn clean test -Pliberty
 ```
 Apache WSS4J version 2 will be bundled within the WAR.
 
-The web application should be available at: http://localhost:9080/dssp-example/
+The web application should be available at:
+https://localhost:9443/dssp-example/
 
 
 ## Payara
