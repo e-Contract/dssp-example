@@ -36,4 +36,12 @@
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
     
+    <session-config>
+        <session-timeout>5</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>true</secure>
+        </cookie-config>
+    </session-config>
+
 </web-app>

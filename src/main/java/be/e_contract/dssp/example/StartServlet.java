@@ -44,7 +44,18 @@ public class StartServlet extends HttpServlet {
         HttpSession httpSession = request.getSession();
         httpSession.setAttribute("DSS-SESSION", session);
 
-        String destination = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/landing";
+        String destination = request.getScheme() + "://" + request.getServerName();
+        if ("http".equals(request.getScheme())) {
+            if (request.getServerPort() != 80) {
+                destination += ":" + request.getServerPort();
+            }
+        } else if ("https".equals(request.getScheme())) {
+            if (request.getServerPort() != 443) {
+                destination += ":" + request.getServerPort();
+            }
+        }
+        destination += request.getContextPath() + "/landing";
+
         String pendingRequest = PendingRequestFactory.createPendingRequest(session, destination, "nl");
 
         httpSession.setAttribute("PENDING-REQUEST", pendingRequest);
